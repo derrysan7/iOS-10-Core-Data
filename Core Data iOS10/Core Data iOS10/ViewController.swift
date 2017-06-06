@@ -21,9 +21,9 @@ class ViewController: UIViewController {
         
         let newUser = NSEntityDescription.insertNewObject(forEntityName: "Users", into: context)
         
-        newUser.setValue("ralphie", forKey: "username")
+        newUser.setValue("ralphies", forKey: "username")
         newUser.setValue("myPass", forKey: "password")
-        newUser.setValue(2, forKey: "age")
+        newUser.setValue(5, forKey: "age")
         
         do {
             
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
         
-        request.predicate = NSPredicate(format: "username = %@", "kirsten")
+        request.predicate = NSPredicate(format: "age < %@", "10")
         
         request.returnsObjectsAsFaults = false
         
