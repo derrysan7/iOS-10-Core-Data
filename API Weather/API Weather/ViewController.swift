@@ -13,12 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet var cityTextField: UITextField!
     @IBOutlet var resultLabel: UILabel!
     @IBAction func submit(_ sender: Any) {
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=London&appid=a98efa86379313cb8f8b3eab0c1abe26")!
+        if let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=" + cityTextField.text! + "&appid=a98efa86379313cb8f8b3eab0c1abe26") {
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             
@@ -31,9 +27,9 @@ class ViewController: UIViewController {
                 if let urlContent = data {
                     
                     do {
-                    
+                        
                         let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                    
+                        
                         print(jsonResult)
                         
                         print(jsonResult["name"])
@@ -41,9 +37,9 @@ class ViewController: UIViewController {
                         if let description = ((jsonResult["weather"] as? NSArray)?[0] as? NSDictionary)?["description"] as? String{
                             
                             DispatchQueue.main.sync(execute: {
-                            
+                                
                                 self.resultLabel.text = description
-                            
+                                
                             })
                             
                         }
@@ -61,6 +57,20 @@ class ViewController: UIViewController {
         }
         
         task.resume()
+        
+        } else {
+            
+            resultLabel.text = "Couldn't find weather for that city - please try another"
+            
+        }
+        
+        
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
