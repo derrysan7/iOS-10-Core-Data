@@ -16,6 +16,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        
+        if documentsPath.count > 0 {
+            
+            let documentsDirectory = documentsPath[0]
+            
+            let restorePath = documentsDirectory + "/bach.jpg"
+            
+            bachimageView.image = UIImage(contentsOfFile: restorePath)
+
+            
+        }
+        
+        
+        
+        
+        
+        
         let url = URL(string: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Johann_Sebastian_Bach.jpg")!
         
         let request = NSMutableURLRequest(url: url)
@@ -37,6 +55,25 @@ class ViewController: UIViewController {
                         
                         //store image in device, jadi tidak reload dari web lagi
                         
+                        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+                        
+                        if documentsPath.count > 0 {
+                            
+                            let documentsDirectory = documentsPath[0]
+                                
+                                let savePath = documentsDirectory + "/bach.jpg"
+                                
+                                do {
+                                
+                                    try UIImageJPEGRepresentation(bachImage, 1)?.write(to: URL(fileURLWithPath: savePath))
+                                    
+                                } catch {
+                                    
+                                    //process error
+                                    
+                                }
+                            
+                        }
                         
                         
                     }
