@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         
         
         
-        
+        /*
         
         
         let url = URL(string: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Johann_Sebastian_Bach.jpg")!
@@ -87,6 +87,8 @@ class ViewController: UIViewController {
         }
         
         task.resume()
+ 
+    */
         
     }
 
