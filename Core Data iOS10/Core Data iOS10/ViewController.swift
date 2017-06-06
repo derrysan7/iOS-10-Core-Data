@@ -19,6 +19,8 @@ class ViewController: UIViewController {
         
         let context = appDelegate.persistentContainer.viewContext
         
+        /*
+        
         let newUser = NSEntityDescription.insertNewObject(forEntityName: "Users", into: context)
         
         newUser.setValue("ralphies", forKey: "username")
@@ -36,10 +38,12 @@ class ViewController: UIViewController {
             print("There was an error")
             
         }
+ 
+         */
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
         
-        request.predicate = NSPredicate(format: "age < %@", "10")
+        request.predicate = NSPredicate(format: "username < %@", "ralphie")
         
         request.returnsObjectsAsFaults = false
         
@@ -53,7 +57,17 @@ class ViewController: UIViewController {
                     
                     if let username = result.value(forKey: "username") as? String {
                         
-                        print(username)
+                        result.setValue("Dooley", forKey: "username")
+                        
+                        do {
+                            
+                            try context.save()
+                            
+                        }catch {
+                            
+                            print("Rename failed")
+                            
+                        }
                         
                     }
                     
