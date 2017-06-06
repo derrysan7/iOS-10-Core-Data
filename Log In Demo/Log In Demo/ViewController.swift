@@ -47,9 +47,11 @@ class ViewController: UIViewController {
                 
                 logOutButton.alpha = 0
                 
-                textField.alpha = 1
+                loginButton.setTitle("Login", for: [])
                 
-                loginButton.alpha = 1
+                isLoggedin = false
+                
+                textField.alpha = 1
                 
             }
             
@@ -65,6 +67,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var label: UILabel!
     
+    var isLoggedin = false
+    
     @IBOutlet var loginButton: UIButton!
     @IBAction func login(_ sender: Any) {
         
@@ -72,27 +76,75 @@ class ViewController: UIViewController {
         
         let context = appDelegate.persistentContainer.viewContext
         
-        let newValue = NSEntityDescription.insertNewObject(forEntityName: "Users", into: context)
-        
-        newValue.setValue(textField.text, forKey: "name")
-        
-        do{
+        if isLoggedin {
             
-            try context.save()
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
             
-            textField.alpha = 0
+            do{
+                
+                let results = try context.fetch(request)
+                
+                if results.count > 0 {
+                    
+                    for result in results as! [NSManagedObject]{
+                        
+                        result.setValue(textField.text, forKey: "name")
+                        
+                        do{
+                            
+                            try context.save()
+                            
+                        }catch{
+                            
+                            print("Update username save failed")
+                            
+                        }
+                        
+                    }
+                    
+                  label.text = "Hi there " + textField.text! + "!"
+                    
+                }
+                
+            }catch{
+                
+                
+                print("Update username failed")
+                
+            }
             
-            loginButton.alpha = 0
+        }else{
             
-            label.alpha = 1
+            let newValue = NSEntityDescription.insertNewObject(forEntityName: "Users", into: context)
             
-            label.text = "Hi there " + textField.text! + "!"
+            newValue.setValue(textField.text, forKey: "name")
             
-        }catch{
-            
-            print("Failed to save")
+            do{
+                
+                try context.save()
+                
+                
+                loginButton.setTitle("Update username", for: [])
+                
+                logOutButton.alpha = 1
+                
+                label.alpha = 1
+                
+                label.text = "Hi there " + textField.text! + "!"
+                
+                isLoggedin = true
+                
+            }catch{
+                
+                print("Failed to save")
+                
+            }
             
         }
+        
+        
+        
+        
         
     }
     
@@ -117,9 +169,11 @@ class ViewController: UIViewController {
                 
                 if let username = result.value(forKey: "name") as? String {
                     
-                    textField.alpha = 0
+                    textField.alpha = 1
                     
-                    loginButton.alpha = 0
+                    loginButton.setTitle("Update username", for: [])
+                    
+                    logOutButton.alpha = 1
                     
                     label.alpha = 1
                     
