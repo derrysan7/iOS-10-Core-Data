@@ -50,6 +50,9 @@
                                 <rect key="frame" x="163" y="203" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XAA-HB-lNX"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wc2-8H-bze">
                                 <rect key="frame" x="0.0" y="407" width="375" height="252"/>
@@ -63,6 +66,7 @@
                     </view>
                     <connections>
                         <outlet property="cityTextField" destination="iTc-yC-pnq" id="oVl-PN-A1h"/>
+                        <outlet property="resultLabel" destination="wc2-8H-bze" id="VOd-kw-pfW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
