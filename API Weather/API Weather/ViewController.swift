@@ -32,6 +32,14 @@ class ViewController: UIViewController {
                     
                         print(jsonResult)
                         
+                        print(jsonResult["name"])
+                        
+                        if let description = ((jsonResult["weather"] as? NSArray)?[0] as? NSDictionary)?["description"] as? String{
+                            
+                            print(description)
+                            
+                        }
+                        
                     }catch{
                         
                         print("JSON Processing failed")

@@ -12,6 +12,7 @@
 		52F3AD6D1EE6969800E17CBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52F3AD6B1EE6969800E17CBD /* Main.storyboard */; };
 		52F3AD6F1EE6969800E17CBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F3AD6E1EE6969800E17CBD /* Assets.xcassets */; };
 		52F3AD721EE6969800E17CBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52F3AD701EE6969800E17CBD /* LaunchScreen.storyboard */; };
+		52F3AD7A1EE6AD6600E17CBD /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 52F3AD791EE6AD6600E17CBD /* background.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		52F3AD6E1EE6969800E17CBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52F3AD711EE6969800E17CBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52F3AD731EE6969800E17CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52F3AD791EE6AD6600E17CBD /* background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				52F3AD671EE6969800E17CBD /* AppDelegate.swift */,
 				52F3AD691EE6969800E17CBD /* ViewController.swift */,
 				52F3AD6B1EE6969800E17CBD /* Main.storyboard */,
+				52F3AD791EE6AD6600E17CBD /* background.jpeg */,
 				52F3AD6E1EE6969800E17CBD /* Assets.xcassets */,
 				52F3AD701EE6969800E17CBD /* LaunchScreen.storyboard */,
 				52F3AD731EE6969800E17CBD /* Info.plist */,
@@ -127,6 +130,7 @@
 				52F3AD721EE6969800E17CBD /* LaunchScreen.storyboard in Resources */,
 				52F3AD6F1EE6969800E17CBD /* Assets.xcassets in Resources */,
 				52F3AD6D1EE6969800E17CBD /* Main.storyboard in Resources */,
+				52F3AD7A1EE6AD6600E17CBD /* background.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
