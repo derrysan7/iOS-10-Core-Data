@@ -11,6 +11,56 @@ import CoreData
 
 class ViewController: UIViewController {
 
+    @IBOutlet var logOutButton: UIButton!
+    @IBAction func logOut(_ sender: Any) {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
+        
+        do {
+            
+            let results = try context.fetch(request)
+            
+            if results.count > 0 {
+                
+                for result in results as! [NSManagedObject] {
+                    
+                    context.delete(result)
+                    
+                    do{
+                        
+                        try context.save()
+                        
+                    }catch{
+                        
+                        
+                        print("Individual delete failed")
+                        
+                    }
+                    
+                }
+                
+                label.alpha = 0
+                
+                logOutButton.alpha = 0
+                
+                textField.alpha = 1
+                
+                loginButton.alpha = 1
+                
+            }
+            
+        }catch{
+            
+            print("Delete failed")
+            
+        }
+        
+    }
+    
     @IBOutlet var textField: UITextField!
     
     @IBOutlet var label: UILabel!

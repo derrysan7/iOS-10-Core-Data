@@ -43,11 +43,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0X-ra-XiN">
+                                <rect key="frame" x="20" y="166" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="logOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ioi-qE-21h"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="label" destination="XVM-M5-0sr" id="4dO-uL-JXh"/>
+                        <outlet property="logOutButton" destination="P0X-ra-XiN" id="TQe-GS-5nz"/>
                         <outlet property="loginButton" destination="ylf-sY-NFb" id="6DU-vO-4DO"/>
                         <outlet property="textField" destination="ufP-g4-7BT" id="Kt5-hv-6NH"/>
                     </connections>
