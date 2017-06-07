@@ -21,10 +21,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
-        super.viewWillAppear(animated)
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
