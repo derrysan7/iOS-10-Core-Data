@@ -33,9 +33,20 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                     
                     do {
                         
-                        let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers)
+                        let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
                         
-                        print(jsonResult)
+                        //print(jsonResult)
+                        
+                        if let items = jsonResult["items"] as? NSArray {
+                            
+                            for item in items {
+                                
+                                print(item)
+                                
+                            }
+                            
+                            
+                        }
                         
                     } catch {
                         
