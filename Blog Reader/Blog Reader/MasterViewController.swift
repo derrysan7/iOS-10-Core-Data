@@ -149,7 +149,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
 
     func configureCell(_ cell: UITableViewCell, withEvent event: Event) {
-        cell.textLabel!.text = event.timestamp!.description
+        cell.textLabel!.text = event.value(forKey: "title") as? String
     }
 
     // MARK: - Fetched results controller
